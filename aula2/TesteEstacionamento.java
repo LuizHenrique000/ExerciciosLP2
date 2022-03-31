@@ -1,5 +1,8 @@
 package aula2;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class TesteEstacionamento {
@@ -9,27 +12,16 @@ public class TesteEstacionamento {
         System.out.println("Digite o seu veiculo estacionado: ");
         System.out.println("1 - Carro, 2 - Moto, 3 - Bicicleta");
         int opcao = in.nextInt();
-        int horaAdicional = 0;
-        int totalHorasAdicionais = 0;
-
         if (opcao == 1) {
             Carro carro = new Carro("", "", 0);
             System.out.println("Digite a marca do seu carro: ");
             carro.setMarca(in.next());
             System.out.println("Digite a cor do seu veiculo: ");
             carro.setCor(in.next());
-            System.out.println("Digite em minutos o tempo em que seu veículo ficou no estacionamento: ");
-            carro.setTempoDeEstacionamento(in.nextDouble());
-            System.out.println("Digite se tem horas adicionais: ");
-            System.out.println(" 1 - Sim, 2 - Não");
-            horaAdicional = in.nextInt();
-            if (horaAdicional == 1) {
-                System.out.println("Digite o total de horas adicionais: ");
-                totalHorasAdicionais = in.nextInt();
-            }
-            carro.calcularTaxa();
-            System.out.println(carro);
-
+            String horaEntrada = in.next();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            LocalDateTime dateTime = LocalDateTime.parse(horaEntrada, formatter);
+            System.out.println(dateTime + "funfou");
         } else if (opcao == 2) {
             Moto moto = new Moto("", "", 0);
             System.out.println("Digite a marca da sua moto: ");
@@ -38,9 +30,6 @@ public class TesteEstacionamento {
             moto.setCor(in.next());
             System.out.println("Digite em minutos o tempo em que sua moto ficou no estacionamento: ");
             moto.setTempoDeEstacionamento(in.nextDouble());
-            System.out.println("Digite se tem horas adicionais: ");
-            System.out.println(" 1 - Sim, 2 - Não");
-            horaAdicional = in.nextInt();
             moto.calcularTaxa();
             System.out.println(moto);
 
@@ -52,9 +41,6 @@ public class TesteEstacionamento {
             bicicleta.setCor(in.next());
             System.out.println("Digite em minutos o tempo em que sua bicicleta ficou no estacionamento: ");
             bicicleta.setTempoDeEstacionamento(in.nextDouble());
-            System.out.println("Digite se tem horas adicionais: ");
-            System.out.println(" 1 - Sim, 2 - Não");
-            horaAdicional = in.nextInt();
             bicicleta.calcularTaxa();
             System.out.println(bicicleta);
         }

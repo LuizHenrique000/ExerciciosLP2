@@ -1,11 +1,12 @@
 package aula2;
 
+import java.time.LocalTime;
+
 public class Carro {
     private String marca;
     private String cor;
     private int taxa;
     private double tempoDeEstacionamento;
-    private int totalHorasAdicionais;
 
     public Carro() {
     }
@@ -17,15 +18,6 @@ public class Carro {
     }
 
     public void calcularTaxa() {
-        if (tempoDeEstacionamento <= 0.30) {
-            taxa = 10;
-        } else if (tempoDeEstacionamento <= 0.60) {
-            taxa = 15;
-        }
-
-    }
-
-    public void calcularHoraAdicional() {
 
     }
 
